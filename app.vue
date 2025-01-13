@@ -31,7 +31,7 @@ export type Fach = {
   kategorie: string
 }
 
-const stash = ref<Fach[]>([
+const stash = useLocalStorage<Fach[]>('data.stash', [
   {
     name: 'Freier Bereich',
     ects: 5,
@@ -393,7 +393,7 @@ function stashDropped(fach: Fach) {
   updateSems.value++
 }
 
-const semesters = ref<Array<Fach[]>>([
+const semesters = useLocalStorage<Array<Fach[]>>('data.semesters', [
   [], [], [], [], [], [], [], [], [], [], [], [], [], []
 ])
 

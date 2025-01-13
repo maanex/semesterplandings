@@ -20,7 +20,7 @@ import type { Fach } from '~/app.vue'
 const props = defineProps<{
   semester: number
   totalEcts: number
-  fertig: number
+  fertig: boolean
   fachs: Fach[]
 }>()
 
