@@ -7,7 +7,7 @@
   >
     <span>{{ (totalEcts/semester).toFixed(1) }}</span>
     <span class="semestersl">{{ semester }}</span>
-    <span>{{ ectsGemacht }}</span>
+    <span>{{ ectsGemachtNormal }} + {{ ectsGemachtChinesisch }}</span>
     <div class="drop">
       <Fach v-for="fach in fachs" :key="fach.name" :data="fach" />
     </div>
@@ -24,7 +24,8 @@ const props = defineProps<{
   fachs: Fach[]
 }>()
 
-const ectsGemacht = computed(() => props.fachs.reduce((acc, f) => acc + f.ects, 0))
+const ectsGemachtNormal = computed(() => props.fachs.filter(f => f.kategorie !== 'Chinesisch').reduce((acc, f) => acc + f.ects, 0))
+const ectsGemachtChinesisch = computed(() => props.fachs.filter(f => f.kategorie === 'Chinesisch').reduce((acc, f) => acc + f.ects, 0))
 
 const emit = defineEmits<{
   dropped: [ Fach ]

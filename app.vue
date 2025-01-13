@@ -12,7 +12,7 @@
       @dropped="stashDropped"
     />
     <Infobox>
-      <pre>Durchschnittliche ECTS pro Semester: {{ avgEctsProSemester.toFixed(1) }}
+      <pre>Durchschnittliche ECTS pro Semester: {{ avgEctsProSemester.toFixed(1) }} (Chinesisch ausgenommen)
 => Fertig in ca {{ fertigIn }} semestern</pre>
 
       <span v-for="kat of [...kategorien]" :key="kat">
@@ -31,7 +31,7 @@ export type Fach = {
   kategorie: string
 }
 
-const stash = useLocalStorage<Fach[]>('data.stash', [
+const faecher = [
   {
     name: 'Freier Bereich',
     ects: 5,
@@ -377,15 +377,18 @@ const stash = useLocalStorage<Fach[]>('data.stash', [
     ects: 5,
     kategorie: 'Chinesisch'
   },
-])
+]
 
-const kategorien = new Set(stash.value.map(f => f.kategorie))
+const stash = useLocalStorage<Fach[]>('data.stash', faecher)
+
+const kategorien = new Set(faecher.map(f => f.kategorie))
 
 const updateSems = ref(0)
 
 function stashDropped(fach: Fach) {
   stash.value.splice(stash.value.findIndex(f => f.name === fach.name), 1)
   stash.value.push(fach)
+  stash.value = stash.value.sort((a, b) => faecher.findIndex(f => f.name === a.name) - faecher.findIndex(f => f.name === b.name))
   semesters.value.forEach(sem => {
     if (sem.some(f => f.name === fach.name))
       sem.splice(sem.findIndex(f => f.name === fach.name), 1)
@@ -398,7 +401,8 @@ const semesters = useLocalStorage<Array<Fach[]>>('data.semesters', [
 ])
 
 const avgEctsProSemester = computed(() => {
-  return semesters.value.reduce((acc, sem) => acc + sem.reduce((acc, f) => acc + f.ects, 0), 0) / semesters.value.filter(s => s.length > 0).length || 0
+  const filteredSemesters = semesters.value.map(sem => sem.filter(f => f.kategorie !== 'Chinesisch'))
+  return filteredSemesters.reduce((acc, sem) => acc + sem.reduce((acc, f) => acc + f.ects, 0), 0) / filteredSemesters.filter(s => s.length > 0).length || 0
 })
 
 const fertigIn = computed(() => {
