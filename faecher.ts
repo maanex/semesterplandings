@@ -15,7 +15,7 @@ export const Faecher = [
     kategorie: 'Pädagogisch-didaktisches Schulpraktikum'
   },
   {
-    name: 'Schulpädagogik I: Grundlagen',
+    name: 'Schulpädagogik I: GruNdLagen',
     ects: 5,
     kategorie: 'Schulpädagogik'
   },
@@ -80,7 +80,7 @@ export const Faecher = [
     kategorie: 'Deutsch'
   },
   {
-    name: 'Ndl BM-2',
+    name: 'NdL BM-2',
     ects: 5,
     kategorie: 'Deutsch'
   },
@@ -150,7 +150,7 @@ export const Faecher = [
     kategorie: 'Deutsch'
   },
   {
-    name: 'Ndl Finit',
+    name: 'NdL Finit',
     ects: 10,
     kategorie: 'Deutsch'
   },
@@ -225,12 +225,12 @@ export const Faecher = [
     kategorie: 'Geschichte'
   },
   {
-    name: 'Methodische Grundlagen',
+    name: 'Methodische GruNdLagen',
     ects: 5,
     kategorie: 'Geschichte'
   },
   {
-    name: 'Theoretische Grundlagen',
+    name: 'Theoretische GruNdLagen',
     ects: 5,
     kategorie: 'Geschichte'
   },
