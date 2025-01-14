@@ -70,8 +70,10 @@ function semestersDropped(fach: string, semester: number) {
 
 function removeFromAllSems(fach: string) {
   for (const sem of semesters.value) {
-    if (sem.includes(fach))
-      sem.splice(sem.indexOf(fach), 1)
+    for (const check of sem) {
+      if (!getFach(check) || check === fach)
+        sem.splice(sem.indexOf(check), 1)
+    }
   }
 }
 
