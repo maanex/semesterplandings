@@ -16,8 +16,8 @@
 => Fertig in ca {{ fertigIn }} semestern</pre>
 
       <span v-for="kat of [...kategorien]" :key="kat">
-        {{ kat }}: {{ removeTrailingZeros(semesters.map(s => s.filter(f => getFach(f).kategorie === kat).map(f => getFach(f).ects).reduce((a, b) => a + b, 0))).join(' + ') || 'keine' }} ECTS
-        = {{ semesters.flatMap(s => s.filter(f => getFach(f).kategorie === kat).map(f => getFach(f).ects)).reduce((a, b) => a + b, 0) }} gesamt
+        {{ kat }}: {{ removeTrailingZeros(semesters.map(s => s.filter(f => getFach(f)?.kategorie === kat).map(f => getFach(f)?.ects ?? 0).reduce((a, b) => a + b, 0))).join(' + ') || 'keine' }} ECTS
+        = {{ semesters.flatMap(s => s.filter(f => getFach(f)?.kategorie === kat).map(f => getFach(f)?.ects ?? 0)).reduce((a, b) => a + b, 0) }} gesamt
         <br>
       </span>
     </Infobox>
@@ -49,12 +49,12 @@ function stashDropped(fach: string) {
 }
 
 function getFach(name: string) {
-  return Faecher.find(l => l.name === name)!
+  return Faecher.find(l => l.name === name)
 }
 
 const avgEctsProSemester = computed(() => {
-  const filteredSemesters = semesters.value.map(sem => sem.filter(f => !getFach(f).kategorie.toLowerCase().includes('chinesisch')))
-  return filteredSemesters.reduce((acc, sem) => acc + sem.reduce((acc, f) => acc + getFach(f).ects, 0), 0) / filteredSemesters.filter(s => s.length > 0).length || 0
+  const filteredSemesters = semesters.value.map(sem => sem.filter(f => !getFach(f)?.kategorie.toLowerCase().includes('chinesisch')))
+  return filteredSemesters.reduce((acc, sem) => acc + sem.reduce((acc, f) => acc + (getFach(f)?.ects ?? 0), 0), 0) / filteredSemesters.filter(s => s.length > 0).length || 0
 })
 
 const fertigIn = computed(() => {

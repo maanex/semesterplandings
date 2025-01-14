@@ -19,8 +19,6 @@
 </template>
 
 <script setup lang="ts">
-import type { Fach } from '~/app.vue'
-
 defineProps<{
   semesters: Array<string[]>
   fertigIn: number

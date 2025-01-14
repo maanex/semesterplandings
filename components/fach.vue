@@ -3,7 +3,7 @@
     <span v-if="data">{{ data.name }}</span>
     <span v-if="data">{{ data.ects }} ECTS</span>
     <span v-if="!data">Unbekanntes Fach</span>
-    <span v-if="!data">"{{ backupName }}""</span>
+    <span v-if="!data">"{{ backupName }}"</span>
   </div>
 </template>
 
@@ -20,6 +20,7 @@ function onDragStart(event: any) {
 }
 
 const color = computed(() => {
+  if (!props.data) return '#dddddd'
   if (props.data?.kategorie === 'Geschichte Didaktik') return '#835ced'
 
   const hue = ((props.data?.kategorie ?? 'owo').split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) * 137) % 360

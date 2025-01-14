@@ -9,7 +9,7 @@
     <span class="semestersl">{{ semester }}</span>
     <span>{{ ectsGemachtNormal }} + {{ ectsGemachtChinesisch }}</span>
     <div class="drop">
-      <Fach v-for="fach in fachs" :key="fach" :data="getFach(fach)" :backup-name="fach" />
+      <Fach v-for="fach in fachs" :key="fach" :data="getFach(fach)!" :backup-name="fach" />
     </div>
   </div>
 </template>
@@ -25,11 +25,11 @@ const props = defineProps<{
 }>()
 
 function getFach(name: string) {
-  return Faecher.find(l => l.name === name)!
+  return Faecher.find(l => l.name === name)
 }
 
-const ectsGemachtNormal = computed(() => props.fachs.filter(f => !getFach(f).kategorie.toLowerCase().includes('chinesisch')).reduce((acc, f) => acc + getFach(f).ects, 0))
-const ectsGemachtChinesisch = computed(() => props.fachs.filter(f => getFach(f).kategorie.toLowerCase().includes('chinesisch')).reduce((acc, f) => acc + getFach(f).ects, 0))
+const ectsGemachtNormal = computed(() => props.fachs.filter(f => !getFach(f)?.kategorie.toLowerCase().includes('chinesisch')).reduce((acc, f) => acc + (getFach(f)?.ects ?? 0), 0))
+const ectsGemachtChinesisch = computed(() => props.fachs.filter(f => getFach(f)?.kategorie.toLowerCase().includes('chinesisch')).reduce((acc, f) => acc + (getFach(f)?.ects ?? 0), 0))
 
 const emit = defineEmits<{
   dropped: [ string ]
