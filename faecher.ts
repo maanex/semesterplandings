@@ -185,22 +185,22 @@ export const Faecher = [
     kategorie: 'Deutsch Didaktik'
   },
   {
-    name: 'Alte Geschichte',
+    name: 'ÜVL Alte Geschichte',
     ects: 5,
     kategorie: 'Geschichte'
   },
   {
-    name: 'Mittelalterliche Geschichte',
+    name: 'ÜVL Mittelalterliche Geschichte',
     ects: 5,
     kategorie: 'Geschichte'
   },
   {
-    name: 'Neuere Geschichte',
+    name: 'ÜVL Neuere Geschichte',
     ects: 5,
     kategorie: 'Geschichte'
   },
   {
-    name: 'Neuste Geschichte und Zeitgeschichte',
+    name: 'ÜVL Neueste Geschichte und Zeitgeschichte',
     ects: 5,
     kategorie: 'Geschichte'
   },
@@ -220,7 +220,7 @@ export const Faecher = [
     kategorie: 'Geschichte'
   },
   {
-    name: 'Basismodul IV : Proseminar Neuste Geschichte und Zeitgeschichte',
+    name: 'Basismodul IV : Proseminar Neueste Geschichte und Zeitgeschichte',
     ects: 5,
     kategorie: 'Geschichte'
   },

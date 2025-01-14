@@ -1,7 +1,9 @@
 <template>
   <div class="fach" draggable="true" @dragstart="onDragStart">
-    <span>{{ data?.name ?? 'Unbekanntes Fach' }}</span>
-    <span>{{ data?.ects ?? '??' }} ECTS</span>
+    <span v-if="data">{{ data.name }}</span>
+    <span v-if="data">{{ data.ects }} ECTS</span>
+    <span v-if="!data">Unbekanntes Fach</span>
+    <span v-if="!data">"{{ backupName }}""</span>
   </div>
 </template>
 
@@ -10,6 +12,7 @@ import type { Fach } from '~/app.vue'
 
 const props = defineProps<{
   data: Fach
+  backupName: string
 }>()
 
 function onDragStart(event: any) {

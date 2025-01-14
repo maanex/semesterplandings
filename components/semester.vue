@@ -9,7 +9,7 @@
     <span class="semestersl">{{ semester }}</span>
     <span>{{ ectsGemachtNormal }} + {{ ectsGemachtChinesisch }}</span>
     <div class="drop">
-      <Fach v-for="fach in fachs" :key="fach" :data="getFach(fach)" />
+      <Fach v-for="fach in fachs" :key="fach" :data="getFach(fach)" :backup-name="fach" />
     </div>
   </div>
 </template>

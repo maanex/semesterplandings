@@ -1,7 +1,7 @@
 <template>
   <div class="stash" @dragover.prevent @drop="onDrop">
     <div>
-      <Fach v-for="fach in list" :key="fach" :data="getFach(fach)" />
+      <Fach v-for="fach in list" :key="fach" :data="getFach(fach)" :backup-name="fach" />
     </div>
   </div>
 </template>
