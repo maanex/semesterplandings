@@ -63,8 +63,10 @@ const fertigIn = computed(() => {
 
 function semestersDropped(fach: string, semester: number) {
   removeFromAllSems(fach)
-  if (getFach(fach))
+  if (getFach(fach)) {
     semesters.value[semester].push(fach)
+    semesters.value[semester].sort((a, b) => Faecher.findIndex(x => x.name === a) - Faecher.findIndex(x => x.name === b))
+  }
   updateStashValue()
 }
 
@@ -102,6 +104,8 @@ function removeTrailingZeros(arr: number[]) {
 </style>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 body {
   padding: 0;
   margin: 0;

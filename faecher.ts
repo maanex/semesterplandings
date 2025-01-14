@@ -15,7 +15,7 @@ export const Faecher = [
     kategorie: 'Pädagogisch-didaktisches Schulpraktikum'
   },
   {
-    name: 'Schulpädagogik I: GruNdLagen',
+    name: 'Schulpädagogik I: Grundlagen',
     ects: 5,
     kategorie: 'Schulpädagogik'
   },
@@ -225,12 +225,12 @@ export const Faecher = [
     kategorie: 'Geschichte'
   },
   {
-    name: 'Methodische GruNdLagen',
+    name: 'Methodische Grundlagen',
     ects: 5,
     kategorie: 'Geschichte'
   },
   {
-    name: 'Theoretische GruNdLagen',
+    name: 'Theoretische Grundlagen',
     ects: 5,
     kategorie: 'Geschichte'
   },
