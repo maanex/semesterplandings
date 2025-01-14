@@ -13,7 +13,7 @@ const props = defineProps<{
 }>()
 
 function onDragStart(event: any) {
-  event.dataTransfer.setData("fach", JSON.stringify(toRaw(unref(props.data))));
+  event.dataTransfer.setData("fach", toRaw(unref(props.data.name)));
 }
 
 const color = computed(() => {

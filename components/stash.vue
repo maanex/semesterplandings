@@ -1,25 +1,29 @@
 <template>
   <div class="stash" @dragover.prevent @drop="onDrop">
     <div>
-      <Fach v-for="fach in list" :key="fach.name" :data="fach" />
+      <Fach v-for="fach in list" :key="fach" :data="getFach(fach)" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { Fach } from '~/app.vue'
+import { Faecher } from '~/faecher'
 
 defineProps<{
-  list: Fach[]
+  list: string[]
 }>()
 
 const emit = defineEmits<{
-  dropped: [ Fach ]
+  dropped: [ string ]
 }>()
+
+function getFach(name: string) {
+  return Faecher.find(l => l.name === name)!
+}
 
 function onDrop(event: any) {
   const data = event.dataTransfer.getData("fach")
-  emit('dropped', JSON.parse(data) as Fach)
+  emit('dropped', data)
 }
 </script>
 

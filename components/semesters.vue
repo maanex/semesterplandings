@@ -22,12 +22,12 @@
 import type { Fach } from '~/app.vue'
 
 defineProps<{
-  semesters: Array<Fach[]>
+  semesters: Array<string[]>
   fertigIn: number
 }>()
 
 const emit = defineEmits<{
-  dropped: [ Fach, number ]
+  dropped: [ string, number ]
 }>()
 </script>
 

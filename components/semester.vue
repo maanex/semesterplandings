@@ -9,31 +9,35 @@
     <span class="semestersl">{{ semester }}</span>
     <span>{{ ectsGemachtNormal }} + {{ ectsGemachtChinesisch }}</span>
     <div class="drop">
-      <Fach v-for="fach in fachs" :key="fach.name" :data="fach" />
+      <Fach v-for="fach in fachs" :key="fach" :data="getFach(fach)" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { Fach } from '~/app.vue'
+import { Faecher } from '~/faecher'
 
 const props = defineProps<{
   semester: number
   totalEcts: number
   fertig: boolean
-  fachs: Fach[]
+  fachs: string[]
 }>()
 
-const ectsGemachtNormal = computed(() => props.fachs.filter(f => f.kategorie !== 'Chinesisch').reduce((acc, f) => acc + f.ects, 0))
-const ectsGemachtChinesisch = computed(() => props.fachs.filter(f => f.kategorie === 'Chinesisch').reduce((acc, f) => acc + f.ects, 0))
+function getFach(name: string) {
+  return Faecher.find(l => l.name === name)!
+}
+
+const ectsGemachtNormal = computed(() => props.fachs.filter(f => getFach(f).kategorie !== 'Chinesisch').reduce((acc, f) => acc + getFach(f).ects, 0))
+const ectsGemachtChinesisch = computed(() => props.fachs.filter(f => getFach(f).kategorie === 'Chinesisch').reduce((acc, f) => acc + getFach(f).ects, 0))
 
 const emit = defineEmits<{
-  dropped: [ Fach ]
+  dropped: [ string ]
 }>()
 
 function onDrop(event: any) {
   const data = event.dataTransfer.getData("fach")
-  emit('dropped', JSON.parse(data) as Fach)
+  emit('dropped', data)
 }
 </script>
 
