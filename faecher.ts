@@ -35,17 +35,17 @@ export const Faecher = [
     kategorie: 'Allgemeine Pädagogik'
   },
   {
-    name: 'Lernprozesse gestalten',
+    name: 'Psychologie 1: Lernprozesse gestalten',
     ects: 5,
     kategorie: 'Psychologie'
   },
   {
-    name: 'Lernermerkmale',
+    name: 'Psychologie 2: Lernermerkmale',
     ects: 5,
     kategorie: 'Psychologie'
   },
   {
-    name: 'Vertiefung Lernprozesse und Lernermerkmale',
+    name: 'Psychologie 3: Vertiefung Lernprozesse und Lernermerkmale',
     ects: 5,
     kategorie: 'Psychologie'
   },
@@ -175,12 +175,12 @@ export const Faecher = [
     kategorie: 'Deutsch'
   },
   {
-    name: 'BM FDD',
+    name: 'Deutschdidaktik: BM FDD',
     ects: 5,
     kategorie: 'Deutsch Didaktik'
   },
   {
-    name: 'VM FDD',
+    name: 'Deutschdidaktik: VM FDD',
     ects: 5,
     kategorie: 'Deutsch Didaktik'
   },
@@ -205,22 +205,22 @@ export const Faecher = [
     kategorie: 'Geschichte'
   },
   {
-    name: 'Basismodul I',
+    name: 'Basismodul I: Proseminar Alte Geschichte',
     ects: 5,
     kategorie: 'Geschichte'
   },
   {
-    name: 'Basismodul II',
+    name: 'Basismodul II: Proseminar Mittelalterliche Geschichte',
     ects: 5,
     kategorie: 'Geschichte'
   },
   {
-    name: 'Basismodul III',
+    name: 'Basismodul III: Proseminar Neuere Geschichte',
     ects: 5,
     kategorie: 'Geschichte'
   },
   {
-    name: 'Basismodul IV',
+    name: 'Basismodul IV : Proseminar Neuste Geschichte und Zeitgeschichte',
     ects: 5,
     kategorie: 'Geschichte'
   },
@@ -343,5 +343,30 @@ export const Faecher = [
     name: 'Sprache und Literatur Chinas',
     ects: 5,
     kategorie: 'Chinesisch'
+  },
+  {
+    name: 'Language Class 1',
+    ects: 5,
+    kategorie: 'Chinesisch'
+  },
+  {
+    name: 'Language Class 2',
+    ects: 5,
+    kategorie: 'Chinesisch'
+  },
+  {
+    name: 'Language and Sources',
+    ects: 10,
+    kategorie: 'Chinesisch'
+  },
+  {
+    name: 'Basismodul Chinesisch Didaktik',
+    ects: 5,
+    kategorie: 'Chinesisch Didaktik'
+  },
+  {
+    name: 'Vertiefungsmodul Chinesisch Didaktik',
+    ects: 5,
+    kategorie: 'Chinesisch Didaktik'
   },
 ]

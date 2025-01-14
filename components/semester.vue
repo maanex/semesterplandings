@@ -28,8 +28,8 @@ function getFach(name: string) {
   return Faecher.find(l => l.name === name)!
 }
 
-const ectsGemachtNormal = computed(() => props.fachs.filter(f => getFach(f).kategorie !== 'Chinesisch').reduce((acc, f) => acc + getFach(f).ects, 0))
-const ectsGemachtChinesisch = computed(() => props.fachs.filter(f => getFach(f).kategorie === 'Chinesisch').reduce((acc, f) => acc + getFach(f).ects, 0))
+const ectsGemachtNormal = computed(() => props.fachs.filter(f => !getFach(f).kategorie.toLowerCase().includes('chinesisch')).reduce((acc, f) => acc + getFach(f).ects, 0))
+const ectsGemachtChinesisch = computed(() => props.fachs.filter(f => getFach(f).kategorie.toLowerCase().includes('chinesisch')).reduce((acc, f) => acc + getFach(f).ects, 0))
 
 const emit = defineEmits<{
   dropped: [ string ]

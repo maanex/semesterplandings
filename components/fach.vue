@@ -1,7 +1,7 @@
 <template>
   <div class="fach" draggable="true" @dragstart="onDragStart">
-    <span>{{ data.name }}</span>
-    <span>{{ data.ects }} ECTS</span>
+    <span>{{ data?.name ?? 'Unbekanntes Fach' }}</span>
+    <span>{{ data?.ects ?? '??' }} ECTS</span>
   </div>
 </template>
 
@@ -17,7 +17,9 @@ function onDragStart(event: any) {
 }
 
 const color = computed(() => {
-  const hue = (props.data.kategorie.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) * 137) % 360
+  if (props.data?.kategorie === 'Geschichte Didaktik') return '#835ced'
+
+  const hue = ((props.data?.kategorie ?? 'owo').split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) * 137) % 360
   return `hsl(${hue}, 70%, 70%)`
 })
 </script>

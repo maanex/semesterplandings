@@ -53,7 +53,7 @@ function getFach(name: string) {
 }
 
 const avgEctsProSemester = computed(() => {
-  const filteredSemesters = semesters.value.map(sem => sem.filter(f => getFach(f).kategorie !== 'Chinesisch'))
+  const filteredSemesters = semesters.value.map(sem => sem.filter(f => !getFach(f).kategorie.toLowerCase().includes('chinesisch')))
   return filteredSemesters.reduce((acc, sem) => acc + sem.reduce((acc, f) => acc + getFach(f).ects, 0), 0) / filteredSemesters.filter(s => s.length > 0).length || 0
 })
 
