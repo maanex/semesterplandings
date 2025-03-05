@@ -175,6 +175,11 @@ export const Faecher = [
     kategorie: 'Deutsch'
   },
   {
+    name: 'Examensvorbereitung (Exam)',
+    ects: 5,
+    kategorie: 'Deutsch'
+  },
+  {
     name: 'Deutschdidaktik: BM FDD',
     ects: 5,
     kategorie: 'Deutsch Didaktik'
